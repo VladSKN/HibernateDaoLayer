@@ -1,7 +1,7 @@
 package ru.netology.hibernatedaolayer.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import ru.netology.hibernatedaolayer.entity.Person;
 
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface CrudPersonRepository extends CrudRepository<Person, Integer> {
+public interface CrudPersonRepository extends JpaRepository<Person, Integer> {
 
     @Query(value = "select p from Person p where p.cityOfLiving = :cityOfLiving")
     List<Person> findByCityOfLiving(String cityOfLiving);
