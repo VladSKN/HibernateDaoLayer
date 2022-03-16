@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="some ID_1" author="Semikin Vlad">
+
+        <comment>Inserting person records</comment>
+        <insert tableName="person">
+            <column name="age" valueNumeric="25"/>
+            <column name="name" value="vlad"/>
+            <column name="surname" value="antonov"/>
+            <column name="city_of_living" value="spb"/>
+            <column name="phone_number" valueNumeric="111111"/>
+        </insert>
+        <insert tableName="person">
+            <column name="age" valueNumeric="35"/>
+            <column name="name" value="ivan"/>
+            <column name="surname" value="smirnov"/>
+            <column name="city_of_living" value="moscow"/>
+            <column name="phone_number" valueNumeric="2222222"/>
+        </insert>
+        <insert tableName="person">
+            <column name="age" valueNumeric="18"/>
+            <column name="name" value="vladilen"/>
+            <column name="surname" value="ismailov"/>
+            <column name="city_of_living" value="moscow"/>
+            <column name="phone_number" valueNumeric="33333333"/>
+        </insert>
+        <insert tableName="person">
+            <column name="age" valueNumeric="38"/>
+            <column name="name" value="valeria"/>
+            <column name="surname" value="sadykova"/>
+            <column name="city_of_living" value="nsk"/>
+            <column name="phone_number" valueNumeric="4444444"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

@@ -2,25 +2,35 @@ package ru.netology.hibernatedaolayer.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.netology.hibernatedaolayer.entity.Person;
-import ru.netology.hibernatedaolayer.repository.PersonRepository;
+import ru.netology.hibernatedaolayer.repository.CrudPersonRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/persons")
 public class PersonController {
 
-    private final PersonRepository personRepository;
+    private final CrudPersonRepository personRepository;
 
-    public PersonController(PersonRepository personRepository) {
+    public PersonController(CrudPersonRepository personRepository) {
         this.personRepository = personRepository;
     }
 
     @GetMapping("/by-city")
-    public List<Person> getAuthorities(@RequestParam("city") String city) {
-        return personRepository.getPersonsByCity(city);
+    public List<Person> findByCity(String city) {
+        return personRepository.findByCityOfLiving(city);
+    }
+
+    @GetMapping("/by-age")
+    public List<Person> findByAge(int age) {
+        return personRepository.findByAgeLessThanOrderByAgeAsc(age);
+    }
+
+    @GetMapping("/by-name-and-surname")
+    public Optional<Person> findByNameAndSurname(String name, String surname) {
+        return personRepository.findByNameAndSurname(name, surname);
     }
 }
