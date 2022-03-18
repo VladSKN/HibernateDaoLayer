@@ -19,17 +19,17 @@ public class PersonController {
         this.personRepository = personRepository;
     }
 
-    @GetMapping("/by-city")
+    @GetMapping("/by-city")             // без авторизации
     public List<Person> findByCity(String city) {
         return personRepository.findByCityOfLiving(city);
     }
 
-    @GetMapping("/by-age")
+    @GetMapping("/by-age")              // авторизация через пользователя user
     public List<Person> findByAge(int age) {
         return personRepository.findByAgeLessThanOrderByAgeAsc(age);
     }
 
-    @GetMapping("/by-name-and-surname")
+    @GetMapping("/by-name-and-surname") // авторизация через пользователя admin
     public Optional<Person> findByNameAndSurname(String name, String surname) {
         return personRepository.findByNameAndSurname(name, surname);
     }
