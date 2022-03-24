@@ -1,5 +1,6 @@
 package ru.netology.hibernatedaolayer.repository;
 
+import liquibase.pro.packaged.P;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import ru.netology.hibernatedaolayer.entity.Person;
@@ -14,4 +15,6 @@ public interface CrudPersonRepository extends JpaRepository<Person, Integer> {
     List<Person> findByAgeLessThanOrderByAgeAsc(int age);
 
     Optional<Person> findByNameAndSurname(String name, String surname);
+
+    List<Person> findByPhoneNumber(int phoneNumber);
 }
