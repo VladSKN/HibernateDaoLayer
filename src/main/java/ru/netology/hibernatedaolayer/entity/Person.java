@@ -3,7 +3,7 @@ package ru.netology.hibernatedaolayer.entity;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "persons")
 @IdClass(PersonDataPrimaryKey.class)
 public class Person {
 
